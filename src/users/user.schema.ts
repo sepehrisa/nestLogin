@@ -10,6 +10,12 @@ export class User {
 
     @Prop({ required: true })
     password: string;
+
+    @Prop({ default: 'user' }) // "user" or "admin"
+    role: string;
+
+    @Prop({ required: true, unique: true }) // NEW
+    username: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
